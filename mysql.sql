@@ -1,0 +1,20 @@
+CREATE DATABASE covid19
+
+CREATE TABLE countries(
+id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR (128),
+    slug VARCHAR (128),
+
+);
+
+CREATE TABLE cases(
+id INT UNSIGNED AUTO_INCREMENT,
+    country_id  INT UNSIGNED,
+    active  INT UNSIGNED,
+    deaths INT UNSIGNED,
+   recovered INT UNSIGNED,
+   confirmed INT UNSIGNED,
+    `date` DATETIME,
+    CONSTRAINT PRIMARY KEY(id),
+    CONSTRAINT FOREIGN KEY (country_id) REFERENCES countries(id)
+);
